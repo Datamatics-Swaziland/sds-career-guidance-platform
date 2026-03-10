@@ -27,6 +27,11 @@ jobs:
       NODE_ENV: test
       JWT_SECRET: testsecret
       TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5432/sds_test_ci
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: sds_test_ci
     defaults:
       run:
         working-directory: backend
@@ -38,6 +43,7 @@ jobs:
           cache: npm
           cache-dependency-path: backend/package-lock.json
       - run: npm ci
+      - run: node scripts/create-db.js
       - run: npm test
 
   frontend-build:
