@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a defect affecting behavior, security, or reliability
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to...
+        2. Click...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected? Any privacy/security implications?
+  - type: input
+    id: version
+    attributes:
+      label: Commit/branch
+      placeholder: e.g. main @ abc123

@@ -14,7 +14,7 @@ const run = async () => {
     }
 
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('   SDS TEST SYSTEM - DATABASE SETUP');
+    console.log('   SDS CAREER GUIDANCE PLATFORM - DATABASE SETUP');
     console.log('   Ministry of Labour and Social Security');
     console.log('   Kingdom of Eswatini');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
@@ -30,7 +30,7 @@ const run = async () => {
     console.log('✅ Database tables created\n');
     
     // Seed data
-    console.log('🌱 Seeding database with Ministry of Labour data...\n');
+    console.log('🌱 Seeding baseline reference data...\n');
     await seedDatabase();
     
     console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
@@ -38,16 +38,11 @@ const run = async () => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
     
     console.log('📋 What was created:');
-    console.log('   • 12 Database tables');
-    console.log('   • 1 Complete SDS test (228 questions)');
-    console.log('   • 35+ Occupations with Holland codes');
-    console.log('   • 5 Eswatini institutions');
-    console.log('   • 3 Test user accounts\n');
+    console.log('   • Database tables from Sequelize models');
+    console.log('   • Baseline education levels (1-5)\n');
     
-    console.log('🔐 Test Accounts:');
-    console.log('   Admin:     admin@labor.gov.sz / Admin@123');
-    console.log('   Counselor: counselor@labor.gov.sz / Counselor@123');
-    console.log('   Student:   student@test.sz / Student@123\n');
+    console.log('ℹ️ Note: This setup does not create demo users/questions/occupations.');
+    console.log('   Load operational data through admin workflows or migration/seed scripts.\n');
     
     console.log('🚀 Next steps:');
     console.log('   1. Start the backend: npm run dev');
