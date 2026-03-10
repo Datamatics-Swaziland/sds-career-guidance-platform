@@ -1,0 +1,29 @@
+name: Feature request
+description: Propose an improvement for product, DX, security, or operations
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem are we solving?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Include API/UI/data model impact.
+    validations:
+      required: true
+  - type: textarea
+    id: compliance
+    attributes:
+      label: Data protection/privacy impact
+      description: Any impact on personal data collection, access, retention, export, or deletion?
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Bullet list of testable outcomes.

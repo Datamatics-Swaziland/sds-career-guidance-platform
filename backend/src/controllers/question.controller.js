@@ -15,7 +15,8 @@ const parseCsvQuestions = async (csvText) => {
       columns: true,
       bom: true,
       trim: true,
-      skip_empty_lines: true
+      skip_empty_lines: true,
+      relax_column_count: true
     });
 
     parser.on('readable', () => {

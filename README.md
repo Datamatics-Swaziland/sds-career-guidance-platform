@@ -1,95 +1,86 @@
-# Online SDS Test System
+# SDS Career Guidance Platform
 
-Self-Directed Search Career Assessment Tool for the Ministry of Labor and Social Security - Kingdom of Eswatini.
+Self-Directed Search (SDS) career assessment platform for guiding learners through a full 228-question Holland RIASEC workflow and producing education-level-aware career recommendations.
 
-## Features
-- **Career Assessment**: Comprehensive SDS test implementation
-- **User Management**: Registration, login, and profile management
-- **Result Analysis**: Detailed career matching and reporting
-- **Admin Dashboard**: For managing tests and user data
+## What this system does
+- Runs a complete SDS assessment across 4 sections: `activities`, `competencies`, `occupations`, `self_estimates`
+- Saves answers progressively during test-taking
+- Computes RIASEC totals and 3-letter Holland code on completion
+- Matches occupations by exact Holland code + learner education level
+- Supports role-based access for users, counselors, and admins
 
-## Technology Stack
-- **Frontend**: React.js with Tailwind CSS
-- **Backend**: Node.js with Express.js
-- **Database**: PostgreSQL
-- **Authentication**: JWT with bcrypt
-- **Testing**: Jest (unit tests), Cypress (E2E tests)
+## Tech stack
+- Backend: Node.js, Express 5, Sequelize, PostgreSQL, Joi, JWT
+- Frontend: React, React Router, Axios, Tailwind CSS
+- Testing: Jest + Supertest (backend)
 
-## Requirements
-- Node.js v18+
-- PostgreSQL v14+
-- npm v9+
+## Repository layout
+- `backend/` API server and database logic
+- `frontend/` React web application
+- `docs/` API, schema, and setup documentation
 
-## Installation
+## Prerequisites
+- Node.js 18+
+- npm 9+
+- PostgreSQL 14+
+
+## Setup
+1. Clone repository
 ```bash
-# Clone the repository
-git clone https://github.com/[organization]/sds-test-system.git
-cd sds-test-system
-
-# Install all dependencies
-npm run install-all
-
-# Setup environment variables
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-
-# Configure database details in backend/.env
+git clone https://github.com/Datamatics-Swaziland/sds-career-guidance-platform.git
+cd sds-career-guidance-platform
 ```
 
-## Running the Application
+2. Install dependencies
 ```bash
-# Development mode (both frontend and backend)
-npm run dev
+cd backend && npm install
+cd ../frontend && npm install
+```
 
-# Production build
-npm run build
+3. Configure environment
+- Create `backend/.env` and set database/JWT/frontend values (see `docs/SETUP_GUIDE.md`)
+- Set `REACT_APP_API_URL` in frontend environment to your backend base URL
+
+4. Initialize database (destructive)
+```bash
+cd backend
+npm run setup
+```
+
+## Run locally
+Backend:
+```bash
+cd backend
+npm run dev
+```
+
+Frontend:
+```bash
+cd frontend
 npm start
 ```
 
 ## Testing
+Backend tests:
 ```bash
-# Run unit tests
-npm test
-
-# Run E2E tests
-npm run test:e2e
+cd backend
+TEST_DATABASE_URL=<your_test_db_url> npm test
 ```
 
-## Project Structure
-```
-sds-test-system/
-├── backend/                 # Node.js/Express API
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Database models
-│   ├── routes/             # API routes
-│   ├── services/           # Business logic
-│   └── tests/              # Backend tests
-├── frontend/               # React application
-│   ├── public/             # Static assets
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── pages/          # Page components
-│   │   ├── services/       # API services
-│   │   └── tests/          # Frontend tests
-└── README.md
-```
+## Important notes
+- There is no root `package.json`; run commands from `backend/` or `frontend/`.
+- `backend/scripts/setup.js` uses destructive sync (`force: true`) and will drop existing tables.
+- API routes are versioned under `/api/v1/*`.
 
-## Documentation
-
-For detailed information about the system:
-
-- **[Database Schema](docs/DATABASE_SCHEMA_DOCUMENTATION.md)** - Complete database structure and relationships
-- **[API Documentation](docs/API_DOCUMENTATION.md)** - Endpoint specifications and usage examples
-- **[Setup Guide](docs/SETUP_GUIDE.md)** - Installation and configuration instructions
-
-## Environment Variables
-See `.env.example` files in both frontend and backend directories for required variables.
-
-## Deployment
-For deployment instructions, refer to [SETUP_GUIDE.md](docs/SETUP_GUIDE.md)
-
-## Contact
-For support or questions, contact Coordinator Gwebu at coordinator@bitsandpc.co.za
+## Key docs
+- [API Documentation](docs/API_DOCUMENTATION.md)
+- [Database Schema](docs/DATABASE_SCHEMA_DOCUMENTATION.md)
+- [Setup Guide](docs/SETUP_GUIDE.md)
+- [Compliance Baseline](docs/compliance.md)
+- [Incident Response Runbook](docs/incident-response.md)
+- [Data Subject Rights](docs/data-subject-rights.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
 
 ## License
-MIT License
+Proprietary - Government of Eswatini (pending approval)
